@@ -21,11 +21,10 @@ def send_telegram_message(text):
         print("Errore nell'invio della notifica Telegram:", e)
 
 def start_bot():
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    driver = webdriver.Chrome(options=chrome_options)
+    def start_bot():
+    send_telegram_message("✅ Test Telegram: la notifica funziona!")
+    return True
+
 
     try:
         driver.get("https://emexprod-c6t5hv8lbf.dispatcher.hana.ondemand.com/index.html#/ya1xemg0869ah4cel1wm")
