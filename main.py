@@ -46,7 +46,7 @@ def start_bot():
         try:
             selectable = driver.find_element(By.XPATH, '//input[@type="radio" or @type="checkbox"]')
             if selectable:
-                send_telegram_message("position WAM open now")
+                send_telegram_message("position WAM open now\nApri il sito qui:\nhttps://emexprod-c6t5hv8lbf.dispatcher.hana.ondemand.com/index.html#/ya1xemg0869ah4cel1wm")
                 print("Evento trovato! Notifica Telegram inviata.")
                 return True
         except NoSuchElementException:
@@ -60,8 +60,10 @@ def start_bot():
     return False
 
 if __name__ == "__main__":
-    # Se lo script è chiamato con 'daily_check', invia solo il messaggio di stato
-    if len(sys.argv) > 1 and sys.argv[1] == "daily_check":
-        send_telegram_message("✅ Il programma è attivo e funzionante.")
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "daily_check":
+            send_telegram_message("✅ Il programma è attivo e funzionante.")
+        elif sys.argv[1] == "check_manual":
+            send_telegram_message("✅ Sistema funzionante. Job attivo.")
     else:
         start_bot()
